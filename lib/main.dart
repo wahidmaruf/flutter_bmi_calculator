@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'main_screen.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const MainPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color(0xFF0A0E21),
+        primaryColor: const Color(0xFF020509),
         scaffoldBackgroundColor:  const Color(0xFF0A0E21),
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF0A0E21)
@@ -24,17 +26,9 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: AnnotatedRegion<SystemUiOverlayStyle>(
+      home: const AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
-        child: Scaffold(
-          // backgroundColor: Colors.deepPurple,
-          appBar: AppBar(
-            title: const Text("BMI Calculator"),
-          ),
-          body: const SafeArea(
-              child: Text("Hello World")
-          ),
-        ),
+        child: SafeArea(child: MainScreen()),
       ),
     );
   }
