@@ -3,20 +3,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'custom_box_container.dart';
 import 'icon_container.dart';
+import 'model/gender.dart';
 
 const bottomContainerHeight = 60.0;
 const activeCardColor = Color(0xFF1D1E33);
-const bottomContainerColor = const Color(0xFFEB1555);
+const inActiveCardColor = Color(0xFF111328);
+const bottomContainerColor = Color(0xFFEB1555);
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  Gender? selectedGender;
+  @override
   Widget build(BuildContext context) {
-    const data = 'MALE';
-    const IconData mars = FontAwesomeIcons.mars;
     return Scaffold(
       // backgroundColor: Colors.deepPurple,
       appBar: AppBar(
@@ -26,17 +32,28 @@ class MainScreen extends StatelessWidget {
         children: [
           Expanded(
               child: Row(
-            children: const [
+            children: [
+              Expanded(
+                  child: CustomBoxContainer(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    color: selectedGender == Gender.male ? activeCardColor : inActiveCardColor,
+                    cardChild: const IconContainer(icon: FontAwesomeIcons.mars, label: "Male"),
+                  )
+              ),
               Expanded(child: CustomBoxContainer(
-                  color: activeCardColor,
-                cardChild: IconContainer(icon: FontAwesomeIcons.mars, label: "Male"),
-
-              )),
-              Expanded(child:
-              CustomBoxContainer(
-                  color: activeCardColor,
-                cardChild: IconContainer(icon: FontAwesomeIcons.venus, label: "Female"),
+                onPress: () {
+                  setState(() {
+                    selectedGender = Gender.female;
+                  });
+                },
+                color: selectedGender == Gender.female ? activeCardColor : inActiveCardColor,
+                cardChild: const IconContainer(icon: FontAwesomeIcons.venus, label: "Female"),
               )
+
               ),
             ],
           )),
