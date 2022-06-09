@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'main_screen.dart';
+import 'screens/main_screen.dart';
 
 void main() {
   runApp(const MainPage());
@@ -28,7 +28,7 @@ class MainPage extends StatelessWidget {
       ),
       home: const AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
-        child: SafeArea(child: MainScreen()),
+        child: MainScreen(),
       ),
     );
   }

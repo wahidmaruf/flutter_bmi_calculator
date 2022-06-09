@@ -4,4 +4,4 @@ BMI Calculator
 
 ## Getting Started
 
-BMI Calculator
+Simple app to calculate your BMI
