@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'constants.dart';
 import 'custom_box_container.dart';
 import 'icon_container.dart';
 import 'model/gender.dart';
-
-const bottomContainerHeight = 60.0;
-const activeCardColor = Color(0xFF1D1E33);
-const inActiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFFEB1555);
 
 class MainScreen extends StatefulWidget {
   const MainScreen({
@@ -40,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
                         selectedGender = Gender.male;
                       });
                     },
-                    color: selectedGender == Gender.male ? activeCardColor : inActiveCardColor,
+                    color: selectedGender == Gender.male ? kActiveCardColor : kInActiveCardColor,
                     cardChild: const IconContainer(icon: FontAwesomeIcons.mars, label: "Male"),
                   )
               ),
@@ -50,26 +45,26 @@ class _MainScreenState extends State<MainScreen> {
                     selectedGender = Gender.female;
                   });
                 },
-                color: selectedGender == Gender.female ? activeCardColor : inActiveCardColor,
+                color: selectedGender == Gender.female ? kActiveCardColor : kInActiveCardColor,
                 cardChild: const IconContainer(icon: FontAwesomeIcons.venus, label: "Female"),
               )
 
               ),
             ],
           )),
-          const Expanded(child: CustomBoxContainer(color: activeCardColor)),
+          const Expanded(child: CustomBoxContainer(color: kInActiveCardColor)),
           Expanded(
               child: Row(
             children: const [
-              Expanded(child: CustomBoxContainer(color: activeCardColor)),
-              Expanded(child: CustomBoxContainer(color: activeCardColor)),
+              Expanded(child: CustomBoxContainer(color: kActiveCardColor)),
+              Expanded(child: CustomBoxContainer(color: kActiveCardColor)),
             ],
           )),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           )
         ],
       ),
