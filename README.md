@@ -6,4 +6,4 @@ BMI Calculator
 
 Simple app to calculate your BMI
 
-~[App gif](animated.gif)
+![App gif](animated.gif)
